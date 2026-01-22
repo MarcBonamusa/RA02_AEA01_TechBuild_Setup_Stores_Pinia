@@ -4,10 +4,10 @@ import hardware from '@/data/hardware.json'
 
 export const useHardwareStore = defineStore('HardwareStore', () => {
     // State
-    const productRef = ref([])
-    // Actions (Sense getters)
+    const componentRef = ref([])
+    // Actions
     function loadHardware() {
-        productRef.value = hardware
+        componentRef.value = hardware
     }
-    return { productRef, loadHardware }
+    return { componentRef, loadHardware }
 })
