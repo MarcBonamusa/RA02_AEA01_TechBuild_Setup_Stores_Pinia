@@ -1,7 +1,9 @@
 <script setup>
+
 const props = defineProps({
   component: Object,
 });
+
 </script>
 
 <template>

@@ -26,6 +26,7 @@ const { componentRef } = storeToRefs(useHardwareStore())
 </template>
 
 <style>
+
 body,
 html {
   margin: 0;
@@ -43,4 +44,5 @@ html {
   list-style: none;
   margin: 0;
 }
+
 </style>
