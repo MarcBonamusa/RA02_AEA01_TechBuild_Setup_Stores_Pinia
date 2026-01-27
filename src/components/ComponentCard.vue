@@ -1,15 +1,24 @@
 <script setup>
+import { ref } from 'vue';
 
+
+// props
 const props = defineProps({
   component: Object,
 });
+
+// emits
+defineEmits(["addComponent"])
+
+// data
+const count = ref(0)
 
 </script>
 
 <template>
   <li class="component">
     <div class="container-img">
-      <img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="hardware" />
+      <img :src="`/images/${component.image}`" alt="hardware" />
     </div>
 
     <div class="info">
@@ -17,7 +26,7 @@ const props = defineProps({
         <span class="categoria">{{ component.type }}</span>
         <p class="preu">{{ component.price }}€</p>
       
-        <button class="afegir-btn">
+        <button class="afegir-btn" @click="$emit('addComponent', count), (count = 0)">
             Afegir al Muntatge
         </button>
     </div>
@@ -44,19 +53,23 @@ const props = defineProps({
 }
 
 .container-img {
-  background-color: #e5e7eb;
+  background-color: #ffffff;
   width: 100%;
-  height: 150px;
+  height: 180px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .container-img img {
-  width: 60px;
-  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  opacity: 1;
+  padding: 10px;
 }
 
 .categoria {
@@ -79,13 +92,13 @@ const props = defineProps({
 .preu {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #2563eb;
+  color: #0a1120;
   margin-bottom: 15px;
 }
 
 .afegir-btn {
   width: 100%;
-  background-color: #2563eb;
+  background-color: #0a1120;
   color: white;
   border: none;
   padding: 10px;
@@ -93,10 +106,6 @@ const props = defineProps({
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s;
-}
-
-.afegir-btn:hover {
-  background-color: #1d4ed8;
 }
 
 </style>

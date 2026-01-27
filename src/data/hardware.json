@@ -3,24 +3,24 @@
         "name": "Intel Core i9",
         "type": "CPU",
         "price": 500,
-        "image": "cpu-i9.jpg"
+        "image": "cpu-i9.webp"
     },
     {
         "name": "AMD Ryzen 7",
         "type": "CPU",
         "price": 350,
-        "image": "ryzen-7.jpg"
+        "image": "ryzen-7.webp"
     },
     {
         "name": "NVIDIA RTX 4080",
         "type": "GPU",
         "price": 1200,
-        "image": "rtx4080.jpg"
+        "image": "rtx4080.webp"
     },
     {
         "name": "Corsair 32GB RGB",
         "type": "RAM",
         "price": 150,
-        "image": "ram-rgb.jpg"
+        "image": "ram-rgb.webp"
     }
 ]
