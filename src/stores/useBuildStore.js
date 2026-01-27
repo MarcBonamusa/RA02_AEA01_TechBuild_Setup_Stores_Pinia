@@ -4,20 +4,20 @@ import { groupBy } from 'lodash'
 
 export const useBuildStore = defineStore('BuildStore', () => {
     // State
-    const components = []
+    const components = ref([])
     // Getters
     const totalPrice = computed(() => components.value.reduce((acomulador, elemento) => acomulador + elemento.price, 0))
-    const groupedByType = groupBy(components.value, (item) => item.type)
+    const groupedByType = computed(() => groupBy(components.value, (item) => item.type))
     // Action
     function addComponent(contador, item) {
-        contador = parseInt(contador)
+        /*contador = parseInt(contador)
         for (let i = 0; i < contador; i++) {
-            components.value.push(item)
-        }
+            
+        }*/
+        components.value.push(item)
+        console.log(components.value)
     }
-    function removeComponent() {
-        
-    }
+    const removeComponent = (itemName) => (components.value = components.value.filter(item => item.name !== itemName))
     function checkout() {
         
     }

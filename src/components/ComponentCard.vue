@@ -26,7 +26,7 @@ const count = ref(0)
         <span class="categoria">{{ component.type }}</span>
         <p class="preu">{{ component.price }}€</p>
       
-        <button class="afegir-btn" @click="$emit('addComponent', count), (count = 0)">
+        <button class="afegir-btn" @click="$emit('addComponent')">
             Afegir al Muntatge
         </button>
     </div>

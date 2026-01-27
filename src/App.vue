@@ -1,5 +1,6 @@
 <script setup>
 import ComponentCard from './components/ComponentCard.vue';
+import CurrentBuildWidget from './components/CurrentBuildWidget.vue';
 import NavBar from './components/NavBar.vue';
 import { useBuildStore } from './stores/useBuildStore';
 import { useHardwareStore } from './stores/useHardwareStore';
@@ -19,14 +20,18 @@ const { componentRef } = storeToRefs(useHardwareStore())
     <NavBar />
     <main>
       <ul class="components">
-        <ComponentCard v-for="component in componentRef" :key="component.name" :component="component" />
+        <ComponentCard 
+        v-for="component in componentRef" 
+        :key="component.name" 
+        :component="component" 
+        @addComponent="BuildStore.addComponent($event, component)"/>
       </ul>
+      <CurrentBuildWidget/>
     </main>
   </div>
 </template>
 
 <style>
-
 body,
 html {
   margin: 0;
@@ -44,5 +49,4 @@ html {
   list-style: none;
   margin: 0;
 }
-
 </style>

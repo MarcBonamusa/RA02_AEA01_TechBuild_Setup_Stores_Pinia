@@ -9,6 +9,7 @@ import CurrentBuildWidget from './CurrentBuildWidget.vue';
     </div>
 
     <div class="usuari">
+      <p>Hola, Guest Builder</p>
       <button class="carro-btn">
         <i>🛒</i>
       </button>
