@@ -1,5 +1,7 @@
 <script setup>
-import CurrentBuildWidget from './CurrentBuildWidget.vue';
+import { useUserSessionStore } from '@/stores/useUserSessionStore';
+
+const userSession = useUserSessionStore();
 </script>
 
 <template>
@@ -9,7 +11,7 @@ import CurrentBuildWidget from './CurrentBuildWidget.vue';
     </div>
 
     <div class="usuari">
-      <p>Hola, Guest Builder</p>
+      <p>Hola, <span class="github-link" @click="userSession.visitGitHub">{{ userSession.userName }}</span></p>
     </div>
   </header>
 </template>

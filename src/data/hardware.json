@@ -24,9 +24,9 @@
         "image": "ram-rgb.webp"
     },
     {
-        "name": "NVIDIA RTX 5070",
-        "type": "GPU",
-        "price": 1500,
-        "image": "rtx5070.jpg"
+        "name": "Samsung 990 Pro 2TB",
+        "type": "Storage",
+        "price": 180,
+        "image": "ssd-990.webp"
     }
 ]

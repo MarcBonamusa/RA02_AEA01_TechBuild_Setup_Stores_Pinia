@@ -26,7 +26,7 @@ const count = ref(0)
         <p class="preu">{{ component.price }}€</p>
       
         <button class="afegir-btn" @click="$emit('addComponent')">
-            Afegir al Muntatge
+            Afegir a la cistella
         </button>
     </div>
   </li>
