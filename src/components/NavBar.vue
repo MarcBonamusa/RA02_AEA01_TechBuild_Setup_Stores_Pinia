@@ -10,9 +10,6 @@ import CurrentBuildWidget from './CurrentBuildWidget.vue';
 
     <div class="usuari">
       <p>Hola, Guest Builder</p>
-      <button class="carro-btn">
-        <i>🛒</i>
-      </button>
     </div>
   </header>
 </template>
@@ -46,20 +43,6 @@ header {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-}
-
-.carro-btn {
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: transform 0.2s;
-  background-color: #ffffff;
-  border-radius: 50px;
-  padding: 10px;
-}
-
-.carro-btn:hover {
-  transform: scale(1.1);
 }
 
 </style>

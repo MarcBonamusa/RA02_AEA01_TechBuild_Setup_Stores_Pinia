@@ -18,15 +18,16 @@ const { componentRef } = storeToRefs(useHardwareStore())
 <template>
   <div class="container">
     <NavBar />
-    <main>
+    <main class="contenido">
       <ul class="components">
         <ComponentCard 
-        v-for="component in componentRef" 
-        :key="component.name" 
-        :component="component" 
-        @addComponent="BuildStore.addComponent($event, component)"/>
+          v-for="component in componentRef" 
+          :key="component.name" 
+          :component="component" 
+          @addComponent="BuildStore.addComponent($event, component)"/>
       </ul>
-      <CurrentBuildWidget/>
+      
+      <CurrentBuildWidget class="carrito"/>
     </main>
   </div>
 </template>
@@ -49,4 +50,32 @@ html {
   list-style: none;
   margin: 0;
 }
+
+.contenido {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+}
+
+.components {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.carrito {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 20px;
+}
+
 </style>

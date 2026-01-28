@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 
-
 // props
 const props = defineProps({
   component: Object,

@@ -7,7 +7,7 @@ export const useBuildStore = defineStore('BuildStore', () => {
     const components = ref([])
     // Getters
     const totalPrice = computed(() => components.value.reduce((acomulador, elemento) => acomulador + elemento.price, 0))
-    const groupedByType = computed(() => groupBy(components.value, (item) => item.type))
+    const groupedByType = computed(() => groupBy(components.value, (item) => item.name))
     // Action
     function addComponent(contador, item) {
         /*contador = parseInt(contador)
