@@ -47,4 +47,9 @@ header {
   gap: 1.5rem;
 }
 
+span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 </style>

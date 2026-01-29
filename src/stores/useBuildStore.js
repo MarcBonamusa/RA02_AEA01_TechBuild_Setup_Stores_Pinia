@@ -30,7 +30,7 @@ export const useBuildStore = defineStore('BuildStore', () => {
         }
     }
     function checkout() {
-        alert("Compra realitzada amb èxit!")
+        alert(`Compra realitzada: ${totalPrice.value}€`)
         components.value = []
     }
     return { components, totalPrice, groupedByType, addComponent, removeComponent, checkout }
