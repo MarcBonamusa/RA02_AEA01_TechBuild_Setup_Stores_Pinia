@@ -8,7 +8,7 @@ const buildStore = useBuildStore();
 <template>
   <aside class="container">
     <h2>Carret de la compra</h2>
-    
+
     <div v-if="buildStore.components.length === 0">
       El carret està buit.
     </div>
@@ -28,8 +28,8 @@ const buildStore = useBuildStore();
     <div v-if="buildStore.components.length > 0" class="pagament">
       <hr>
       <div class="pagament-container">
-        <p class="total">Total: <strong>{{ buildStore.totalPrice }}€</strong></p> 
-        <button class="btn-pagar" @click="buildStore.checkout">Pagar</button> 
+        <p class="total">Total: <strong>{{ buildStore.totalPrice }}€</strong></p>
+        <button class="btn-pagar" @click="buildStore.checkout">Pagar</button>
       </div>
     </div>
   </aside>
@@ -41,7 +41,7 @@ const buildStore = useBuildStore();
 }
 
 .type-title {
-  font-size: 0.9rem;
+  font-size: 15px;
   text-transform: uppercase;
   margin: 15px 0 5px 0;
   border-bottom: 1px solid #9A9A9A;
@@ -57,7 +57,7 @@ const buildStore = useBuildStore();
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  font-size: 0.95rem;
+  font-size: 15px;
 }
 
 .btn-eliminar {
@@ -67,7 +67,7 @@ const buildStore = useBuildStore();
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 13px;
   transition: background 0.2s;
 }
 
@@ -87,7 +87,7 @@ const buildStore = useBuildStore();
 }
 
 .total {
-  font-size: 1.1rem;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -99,7 +99,7 @@ const buildStore = useBuildStore();
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 18px;
   transition: transform 0.1s, background 0.2s;
 }
 

@@ -74,7 +74,7 @@ const count = ref(0)
 .categoria {
   background: #f3f4f6;
   color: #6b7280;
-  font-size: 0.7rem;
+  font-size: 12px;
   font-weight: bold;
   padding: 2px 8px;
   border-radius: 4px;
@@ -82,14 +82,14 @@ const count = ref(0)
 }
 
 .nom {
-  font-size: 1rem;
+  font-size: 16px;
   margin: 10px 0;
   color: #1f2937;
-  min-height: 2.5rem;
+  min-height: 30px;
 }
 
 .preu {
-  font-size: 1.4rem;
+  font-size: 20px;
   font-weight: 800;
   color: #0a1120;
   margin-bottom: 15px;

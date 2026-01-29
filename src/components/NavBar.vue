@@ -11,7 +11,7 @@ const userSession = useUserSessionStore();
     </div>
 
     <div class="usuari">
-      <p>Hola, <span class="github-link" @click="userSession.visitGitHub">{{ userSession.userName }}</span></p>
+      <p>Hola, <span @click="userSession.visitGitHub">{{ userSession.userName }}</span></p>
     </div>
   </header>
 </template>
@@ -23,7 +23,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #0a1120;
-  padding: 1rem 2rem;
+  padding: 15px 20px;
   color: white;
   font-family: sans-serif;
 }
@@ -35,7 +35,7 @@ header {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 25px;
   font-weight: bold;
   color: #ffffff;
   margin: 0;
@@ -44,7 +44,7 @@ header {
 .usuari {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
 span {
