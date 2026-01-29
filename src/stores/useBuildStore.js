@@ -24,9 +24,9 @@ export const useBuildStore = defineStore('BuildStore', () => {
         console.log(components.value)
     }
     const removeComponent = (itemName) => {
-        const index = components.value.findIndex(item => item.name === itemName)
-        if (index !== -1) {
-            components.value.splice(index, 1)
+        const posicio = components.value.findIndex(item => item.name === itemName)
+        if (posicio !== -1) {
+            components.value.splice(posicio, 1)
         }
     }
     function checkout() {
