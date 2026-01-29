@@ -6,27 +6,105 @@ const buildStore = useBuildStore();
 </script>
 
 <template>
-  <aside>
+  <aside class="container">
     <h2>Carret de la compra</h2>
     
     <div v-if="buildStore.components.length === 0">
       El carret està buit.
     </div>
 
-    <div v-for="(items, type) in buildStore.groupedByType" :key="type">
-      <h3>{{ type }}</h3>
-      
-      <ul>
-        <li v-for="(item, index) in items" :key="index">
-          <span>{{ item.name }}</span>
-          <span> - {{ item.price }}€ </span>
-          <button @click="buildStore.removeComponent(item.name)">Eliminar</button>
+    <div v-for="(items, type) in buildStore.groupedByType" :key="type" class="type-section">
+      <h3 class="type-title">{{ type }}</h3>
+      <ul class="llista">
+        <li v-for="(item, index) in items" :key="index" class="producte">
+          <span>{{ item.name }} ({{ item.price }}€)</span>
+          <button class="btn-eliminar" @click="buildStore.removeComponent(item.name)">
+            Eliminar
+          </button>
         </li>
       </ul>
     </div>
 
-    <div v-if="buildStore.components.length > 0">
+    <div v-if="buildStore.components.length > 0" class="pagament">
       <hr>
-      <p>Total: <strong>{{ buildStore.totalPrice }}€</strong></p> </div>
+      <div class="pagament-container">
+        <p class="total">Total: <strong>{{ buildStore.totalPrice }}€</strong></p> 
+        <button class="btn-pagar" @click="buildStore.checkout">Pagar</button> 
+      </div>
+    </div>
   </aside>
 </template>
+
+<style scoped>
+.container {
+  padding: 10px;
+}
+
+.type-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin: 15px 0 5px 0;
+  border-bottom: 1px solid #9A9A9A;
+}
+
+.llista {
+  list-style: none;
+  padding: 0;
+}
+
+.producte {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.95rem;
+}
+
+.btn-eliminar {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.2s;
+}
+
+.btn-eliminar:hover {
+  background-color: #cc0000;
+}
+
+.pagament {
+  margin-top: 20px;
+}
+
+.pagament-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.total {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.btn-pagar {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.btn-pagar:hover {
+  background-color: #218838;
+  transform: scale(1.02);
+}
+</style>

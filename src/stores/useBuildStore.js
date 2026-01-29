@@ -1,25 +1,37 @@
-import { ref, computed } from 'vue'
+
+import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { groupBy } from 'lodash'
 
 export const useBuildStore = defineStore('BuildStore', () => {
     // State
     const components = ref([])
+
+    // Persistencia
+    const guardat = localStorage.getItem('hardware-guardat')
+    if (guardat) {
+       components.value = JSON.parse(guardat) 
+    }
+    watch(components, (nouValor) => {localStorage.setItem('hardware-guardat', JSON.stringify(nouValor))}, { deep: true })
+
     // Getters
     const totalPrice = computed(() => components.value.reduce((acomulador, elemento) => acomulador + elemento.price, 0))
     const groupedByType = computed(() => groupBy(components.value, 'type'))
-    // Action
+
+    // Actions
     function addComponent(contador, item) {
-        /*contador = parseInt(contador)
-        for (let i = 0; i < contador; i++) {
-            
-        }*/
         components.value.push(item)
         console.log(components.value)
     }
-    const removeComponent = (itemName) => (components.value = components.value.filter(item => item.name !== itemName))
+    const removeComponent = (itemName) => {
+        const index = components.value.findIndex(item => item.name === itemName)
+        if (index !== -1) {
+            components.value.splice(index, 1)
+        }
+    }
     function checkout() {
-        
+        alert("Compra realitzada amb èxit!")
+        components.value = []
     }
     return { components, totalPrice, groupedByType, addComponent, removeComponent, checkout }
 })

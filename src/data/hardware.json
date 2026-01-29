@@ -22,11 +22,5 @@
         "type": "RAM",
         "price": 150,
         "image": "ram-rgb.webp"
-    },
-    {
-        "name": "Samsung 990 Pro 2TB",
-        "type": "Storage",
-        "price": 180,
-        "image": "ssd-990.webp"
     }
 ]
