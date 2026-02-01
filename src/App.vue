@@ -18,7 +18,7 @@ const { componentRef } = storeToRefs(useHardwareStore())
 <template>
   <div class="container">
     <NavBar />
-    <main class="contenido">
+    <main class="contingut">
       <ul class="components">
         <ComponentCard 
           v-for="component in componentRef" 
@@ -51,7 +51,7 @@ html {
   margin: 0;
 }
 
-.contenido {
+.contingut {
   display: flex;
   align-items: flex-start;
   padding: 20px;
