@@ -10,13 +10,20 @@ export const useBuildStore = defineStore('BuildStore', () => {
     // Persistencia
     const guardat = localStorage.getItem('hardware-guardat')
     if (guardat) {
-       components.value = JSON.parse(guardat) 
+        components.value = JSON.parse(guardat)
     }
-    watch(components, (nouValor) => {localStorage.setItem('hardware-guardat', JSON.stringify(nouValor))}, { deep: true })
+    watch(components, (nouValor) => { localStorage.setItem('hardware-guardat', JSON.stringify(nouValor)) }, { deep: true })
 
     // Getters
     const totalPrice = computed(() => components.value.reduce((acomulador, element) => acomulador + element.price, 0))
-    const groupedByType = computed(() => groupBy(components.value, 'type'))
+    const groupedByType = computed(() => {
+        const byType = groupBy(components.value, 'type')
+        const result = {}
+        Object.keys(byType).sort().forEach(type => {
+            result[type] = groupBy(byType[type], 'name')
+        })
+        return result
+    })
 
     // Actions
     function addComponent(contador, item) {

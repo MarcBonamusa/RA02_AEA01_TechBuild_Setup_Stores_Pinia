@@ -1,6 +1,5 @@
 <script setup>
 import { useBuildStore } from '@/stores/useBuildStore';
-import { countBy } from 'lodash';
 
 const buildStore = useBuildStore();
 
@@ -14,15 +13,13 @@ const buildStore = useBuildStore();
       El carret està buit.
     </div>
 
-    <div v-for="(items, type) in buildStore.groupedByType" :key="type">
-      <h3 class="tipus">{{ type }}</h3>
+    <div v-for="(productosPorNombre, tipo) in buildStore.groupedByType" :key="tipo">
+      <h3 class="tipus">{{ tipo }}</h3>
       <ul class="llista">
-        <li v-for="(cantidad, nombre) in countBy(items, 'name')" :key="nombre" class="producte">
+        <li v-for="(lista, nombre) in productosPorNombre" :key="nombre" class="producte">
           <span>
-            <strong>{{ cantidad }}x</strong> {{ nombre }}
-            ({{items.find(i => i.name === nombre).price * cantidad}}€)
+            <strong>{{ lista.length }}x</strong> {{ nombre }} ({{ lista[0].price * lista.length }}€)
           </span>
-
           <button class="btn-eliminar" @click="buildStore.removeComponent(nombre)">
             Eliminar
           </button>
